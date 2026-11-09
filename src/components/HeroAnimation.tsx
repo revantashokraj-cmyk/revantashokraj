@@ -7,15 +7,16 @@ export function HeroAnimation() {
     <g key={`${cx}-${cy}`}>
       <ellipse cx={cx} cy={cy} rx={34} ry={34} className="draw" />
       <ellipse cx={cx} cy={cy} rx={22} ry={22} className="draw" />
-      {Array.from({ length: 8 }, (_, i) => (
-        <line
-          key={i}
-          x1={cx - 30} y1={cy - 6} x2={cx + 30} y2={cy + 6}
-          transform={`rotate(${i * 22.5} ${cx} ${cy})`}
-          className="draw spin-roller"
-          style={{ transformOrigin: `${cx}px ${cy}px` }}
-        />
-      ))}
+      <g className="spin-roller" style={{ transformOrigin: `${cx}px ${cy}px`, transformBox: "view-box" }}>
+        {Array.from({ length: 6 }, (_, i) => (
+          <line
+            key={i}
+            x1={cx - 20} y1={cy - 4} x2={cx + 20} y2={cy + 4}
+            transform={`rotate(${i * 30} ${cx} ${cy})`}
+            className="draw"
+          />
+        ))}
+      </g>
       <circle cx={cx} cy={cy} r={5} className="draw" />
     </g>
   );

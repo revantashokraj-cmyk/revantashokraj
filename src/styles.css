@@ -172,7 +172,7 @@
 
 .draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw-in 2.4s ease-out forwards; }
 .hero-float { animation: hero-float 6s ease-in-out infinite; }
-.spin-roller { animation: draw-in 2.4s ease-out forwards, roller 3s linear 2.4s infinite; }
+.spin-roller { animation: roller 3s linear 2.4s infinite; }
 .arm-wave { animation: arm-wave 5s ease-in-out 2.4s infinite; }
 .ping { opacity: 0; animation: ping 1.8s ease-out 2.4s infinite; }
 .scan-beam { animation: scan 5s ease-in-out infinite; }
