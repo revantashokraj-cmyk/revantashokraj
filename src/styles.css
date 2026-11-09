@@ -182,7 +182,17 @@
 .pcb-scan { animation: pcb-scan 6s ease-in-out infinite; }
 @keyframes pcb-drift { 0%, 100% { transform: rotate(-8deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-8px); } }
 @keyframes pcb-scan { 0%, 100% { top: 5%; opacity: 0; } 20%, 80% { opacity: 0.7; } 50% { top: 95%; } }
-@media (max-width: 767px) { .pcb-graphic { height: 340px; } .pcb-art { max-height: 275px; } }
+@media (max-width: 767px) {
+  .home-hero > div { gap: 20px; padding-top: 24px; padding-bottom: 24px; }
+  .home-hero h1 { font-size: 40px; }
+  .home-hero h1 + p { font-size: 20px; margin-top: 12px; }
+  .home-hero h1 + p + p { font-size: 14px; line-height: 22px; margin-top: 16px; }
+  .home-hero p:first-child { margin-bottom: 16px; }
+  .home-hero .grid-cols-3 { margin-top: 20px; }
+  .pcb-graphic { height: 190px; }
+  .pcb-art { max-height: 135px; }
+  .pcb-graphic figcaption { margin-top: 8px; }
+}
 @media (prefers-reduced-motion: reduce) { .pcb-art, .pcb-scan { animation: none; } .pcb-scan { display: none; } }
 
 .draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw-in 2.4s ease-out forwards; }

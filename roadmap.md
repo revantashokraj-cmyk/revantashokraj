@@ -1,6 +1,7 @@
 # Roadmap
-- [ ] Replace the landing animation with the spider PCB Gerber graphic
-- [ ] Restyle the portfolio in dark brutalist style
+- [x] Replace landing animation with original spider PCB preview (Gerber download restricted)
+- [ ] Replace PCB preview with Gerber rendering (blocked: waiting on Gerber upload from Revant)
+- [x] Restyle the portfolio in dark brutalist style
 - [x] Add missing rover parts (bed, servo mounts, enclosure, lid, wheel hub, arm pin/baseplate)
 - [x] Redo landing graphic: new detailed machine (not a project), Slash Compute style
 - [x] Fully assembled rover 3D view (rendered from the SCAD assembly)
