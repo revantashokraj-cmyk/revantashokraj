@@ -11,7 +11,8 @@ export type Project = {
   tags: string[];
   image?: string;
   badge?: string;
-  href?: "/projects/omni-rover";
+  href?: "/projects/omni-rover" | "/projects/spider-robot";
+  cta?: string;
 };
 
 export const categories: Category[] = [
@@ -25,20 +26,24 @@ export const projects: Project[] = [
   {
     title: "Quadruped Spider Robot",
     category: "Personal",
+    href: "/projects/spider-robot",
+    cta: "Read the build →",
     summary:
-      "A four-legged walking robot driven by an Arduino and a custom PCB, built from an open-source design on PCBWay.",
+      "A four-legged walking robot with 12 servo joints, a custom control PCB and 3D-printed parts, built from an open-source design.",
     details: [
-      "4 legs, 3 MG90S servos per leg (12 total)",
-      "Custom PCB for power and servo control",
-      "Coordinated gait programming on Arduino",
+      "4 legs × 3 servos = 12 SG90 joints",
+      "Arduino Nano V3.0 on a custom control PCB",
+      "3D-printed SLA resin body and leg parts",
+      "Powered by 2× 18650 Li-ion cells",
     ],
-    tags: ["Arduino", "PCB", "Servos", "Open source"],
+    tags: ["Arduino", "3D printing", "Servos", "PCB", "Open source"],
     image: spider,
   },
   {
     title: "Omnidirectional Rover + 6-DOF Arm",
     category: "SCU YSP ENGR1",
     href: "/projects/omni-rover",
+    cta: "Read the research →",
     summary:
       "A collision-avoiding rover that can drive in any direction, with a six-axis robotic arm mounted on top.",
     details: [
