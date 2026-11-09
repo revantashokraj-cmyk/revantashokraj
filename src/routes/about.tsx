@@ -22,6 +22,13 @@ const titles = [
   "Co-author, omnidirectional rover research paper",
 ];
 
+const programs = [
+  { type: "Summer program", name: "SCU Young Scholars — ENGR1 & ENGR1-Lab", note: "Built the omnidirectional rover; won Judges' Favorite." },
+  { type: "Bootcamp", name: "UC Berkeley Design Build Bootcamp", note: "(add year and what you built)" },
+  { type: "Hackathon", name: "(add hackathon name)", note: "(add year, team and project)" },
+  { type: "Club", name: "Engineering Design Club", note: "Team design projects (details coming soon)." },
+];
+
 const people: { group: string; list: { name: string; role: string }[] }[] = [
   { group: "SCU teammates", list: [
     { name: "Ethan Li", role: "Rover + 6-DOF arm teammate, co-author" },
@@ -71,6 +78,20 @@ function About() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section>
+          <h2 className="font-display text-2xl font-bold">Programs & events</h2>
+          <p className="mt-2 text-muted-foreground">Camps, bootcamps and hackathons I've taken part in.</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {programs.map((p, i) => (
+              <div key={i} className="rounded-xl border-2 border-foreground bg-card p-5">
+                <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">{p.type}</span>
+                <h3 className="mt-3 font-display text-lg font-bold">{p.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.note}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section>
