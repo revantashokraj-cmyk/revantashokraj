@@ -43,11 +43,20 @@ const people: { group: string; list: { name: string; role: string }[] }[] = [
     { name: "SCU Maker Lab staff", role: "Laser cutting & 3D printing help" },
   ] },
   { group: "Engineering Design Club", list: [
-    { name: "(add name)", role: "Club member" },
-    { name: "(add name)", role: "Club advisor / mentor" },
+    { name: "Joseph Costello", role: "Club member" },
+    { name: "Stanley He", role: "Club member" },
+    { name: "Andrew Kasberger", role: "Club member" },
+    { name: "Aidan Matthew Roza", role: "Club member" },
+    { name: "Khanh Tu", role: "Club member" },
+    { name: "Kaia Crowley", role: "Club member" },
+    { name: "Katherine McNab", role: "Club member" },
+    { name: "Andrei Pokotylo", role: "Club member" },
+    { name: "Logan Tamblin", role: "Club member" },
+    { name: "Eric Junho Um", role: "Club member" },
+    { name: "Devin Hom", role: "Club member" },
   ] },
   { group: "Others who helped", list: [
-    { name: "Mert Kilic", role: "Open-source spider robot design (PCBWay)" },
+    { name: "Mert Kilic", role: "Open-source spider robot design used by the club (PCBWay)" },
   ] },
 ];
 
