@@ -3,5 +3,5 @@
 - [x] Redo landing graphic: new detailed machine (not a project), Slash Compute style
 - [x] Fully assembled rover 3D view (rendered from the SCAD assembly)
 - [ ] Spider robot STL downloads (blocked: waiting on part files from PCBWay)
-- [ ] Even out About page layout
+- [x] Even out About page layout
 - [ ] Club member roles (blocked: waiting on roles list from Revant)
