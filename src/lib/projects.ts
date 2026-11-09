@@ -25,7 +25,7 @@ export const categories: Category[] = [
 export const projects: Project[] = [
   {
     title: "Quadruped Spider Robot",
-    category: "Personal",
+    category: "Engineering Design Club",
     href: "/projects/spider-robot",
     cta: "Read the build →",
     summary:

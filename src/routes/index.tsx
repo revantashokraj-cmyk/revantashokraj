@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { HeroAnimation } from "@/components/HeroAnimation";
 import { categories, projects, type Category } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
@@ -44,11 +45,12 @@ function Index() {
         </nav>
       </header>
 
-      <section className="blueprint mx-auto max-w-6xl px-6 pb-20 pt-12">
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-12 md:grid-cols-[1.2fr_1fr]">
+        <div>
         <p className="mb-4 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary-foreground">
           Engineering portfolio
         </p>
-        <h1 className="font-display text-5xl font-bold leading-[1.05] md:text-7xl">
+        <h1 className="font-display text-5xl font-bold leading-[1.05] md:text-6xl">
           Hi, I'm Revant.
           <br />
           I build <span className="text-primary">robots</span> that{" "}
@@ -70,6 +72,8 @@ function Index() {
             </div>
           ))}
         </div>
+        </div>
+        <HeroAnimation />
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 pb-24">

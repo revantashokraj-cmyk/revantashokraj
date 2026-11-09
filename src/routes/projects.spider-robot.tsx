@@ -94,7 +94,7 @@ function Spider() {
         <div className="blueprint pt-6">
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
-              Personal build
+              Engineering Design Club
             </span>
             <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
               12 servo joints

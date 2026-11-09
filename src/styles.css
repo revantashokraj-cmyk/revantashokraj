@@ -169,3 +169,9 @@
   background-size: 32px 32px;
 }
 @layer base { body { font-family: var(--font-sans); } }
+
+@keyframes step { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-10deg); } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes sweep { from { transform: rotate(-35deg); } to { transform: rotate(35deg); } }
+@keyframes draw { 0% { stroke-dashoffset: 200; } 60%,100% { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { svg * { animation: none !important; } }
