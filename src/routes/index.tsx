@@ -45,7 +45,7 @@ function Index() {
         </nav>
       </header>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-12 md:grid-cols-[1.2fr_1fr]">
+      <section className="blueprint mx-auto grid max-w-6xl items-center gap-10 border-y-2 border-foreground px-6 pb-20 pt-12 md:grid-cols-[1.1fr_1fr]">
         <div>
         <p className="mb-4 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary-foreground">
           Engineering portfolio

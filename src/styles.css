@@ -170,8 +170,16 @@
 }
 @layer base { body { font-family: var(--font-sans); } }
 
-@keyframes step { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-10deg); } }
-@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-@keyframes sweep { from { transform: rotate(-35deg); } to { transform: rotate(35deg); } }
-@keyframes draw { 0% { stroke-dashoffset: 200; } 60%,100% { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { svg * { animation: none !important; } }
+.draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw-in 2.4s ease-out forwards; }
+.hero-float { animation: hero-float 6s ease-in-out infinite; }
+.spin-roller { animation: draw-in 2.4s ease-out forwards, roller 3s linear 2.4s infinite; }
+.arm-wave { animation: arm-wave 5s ease-in-out 2.4s infinite; }
+.ping { opacity: 0; animation: ping 1.8s ease-out 2.4s infinite; }
+.scan-beam { animation: scan 5s ease-in-out infinite; }
+@keyframes draw-in { to { stroke-dashoffset: 0; } }
+@keyframes hero-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes roller { to { transform: rotate(360deg); } }
+@keyframes arm-wave { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-14deg); } }
+@keyframes ping { 0% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; transform: translateX(30px); } }
+@keyframes scan { 0%,100% { left: 8%; } 50% { left: 92%; } }
+@media (prefers-reduced-motion: reduce) { .draw, .hero-float, .spin-roller, .arm-wave, .ping, .scan-beam { animation: none !important; stroke-dashoffset: 0; } }
