@@ -117,7 +117,7 @@ function Spider() {
           alt="Blueprint drawing of the quadruped spider robot"
           width={1024}
           height={768}
-          className="aspect-[16/9] w-full rounded-2xl border-2 border-foreground object-cover shadow-hard"
+          className="aspect-[4/3] w-full rounded-2xl border-2 border-foreground object-cover shadow-hard"
         />
 
         <Card title="What it is">
