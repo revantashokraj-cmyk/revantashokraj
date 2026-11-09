@@ -38,9 +38,10 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <span className="font-display text-lg font-bold">RA<span className="text-primary">.</span></span>
-        <a href="#projects" className="text-sm font-medium hover:text-primary">
-          Projects
-        </a>
+        <nav className="flex gap-6 text-sm font-medium">
+          <a href="#projects" className="hover:text-primary">Projects</a>
+          <Link to="/about" className="hover:text-primary">About</Link>
+        </nav>
       </header>
 
       <section className="blueprint mx-auto max-w-6xl px-6 pb-20 pt-12">
