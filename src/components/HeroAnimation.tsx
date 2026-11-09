@@ -7,7 +7,7 @@ export function HeroAnimation() {
     <g key={`${cx}-${cy}`}>
       <ellipse cx={cx} cy={cy} rx={34} ry={34} className="draw" />
       <ellipse cx={cx} cy={cy} rx={22} ry={22} className="draw" />
-      <g className="spin-roller" style={{ transformOrigin: `${cx}px ${cy}px`, transformBox: "view-box" }}>
+      <g>
         {Array.from({ length: 6 }, (_, i) => (
           <line
             key={i}
