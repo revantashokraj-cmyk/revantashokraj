@@ -43,17 +43,17 @@ const people: { group: string; list: { name: string; role: string }[] }[] = [
     { name: "SCU Maker Lab staff", role: "Laser cutting & 3D printing help" },
   ] },
   { group: "Engineering Design Club", list: [
-    { name: "Joseph Costello", role: "Club member" },
-    { name: "Stanley He", role: "Club member" },
-    { name: "Andrew Kasberger", role: "Club member" },
-    { name: "Aidan Matthew Roza", role: "Club member" },
-    { name: "Khanh Tu", role: "Club member" },
-    { name: "Kaia Crowley", role: "Club member" },
-    { name: "Katherine McNab", role: "Club member" },
-    { name: "Andrei Pokotylo", role: "Club member" },
-    { name: "Logan Tamblin", role: "Club member" },
-    { name: "Eric Junho Um", role: "Club member" },
-    { name: "Devin Hom", role: "Club member" },
+    { name: "Joseph Costello", role: "Role coming soon" },
+    { name: "Stanley He", role: "Role coming soon" },
+    { name: "Andrew Kasberger", role: "Role coming soon" },
+    { name: "Aidan Matthew Roza", role: "Role coming soon" },
+    { name: "Khanh Tu", role: "Role coming soon" },
+    { name: "Kaia Crowley", role: "Role coming soon" },
+    { name: "Katherine McNab", role: "Role coming soon" },
+    { name: "Andrei Pokotylo", role: "Role coming soon" },
+    { name: "Logan Tamblin", role: "Role coming soon" },
+    { name: "Eric Junho Um", role: "Role coming soon" },
+    { name: "Devin Hom", role: "Role coming soon" },
   ] },
   { group: "Others who helped", list: [
     { name: "Mert Kilic", role: "Open-source spider robot design used by the club (PCBWay)" },
@@ -92,7 +92,7 @@ function About() {
         <section>
           <h2 className="font-display text-2xl font-bold">Programs & events</h2>
           <p className="mt-2 text-muted-foreground">Camps, bootcamps and hackathons I've taken part in.</p>
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {programs.map((p, i) => (
               <div key={i} className="rounded-xl border-2 border-foreground bg-card p-5">
                 <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">{p.type}</span>
@@ -106,9 +106,22 @@ function About() {
         <section>
           <h2 className="font-display text-2xl font-bold">Thank you</h2>
           <p className="mt-2 text-muted-foreground">None of these builds happened alone.</p>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {people.map((g) => (
-              <div key={g.group} className="rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+          {people.filter((g) => g.group === "Engineering Design Club").map((g) => (
+            <div key={g.group} className="mt-6 rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+              <h3 className="font-display text-lg font-bold">{g.group}</h3>
+              <ul className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+                {g.list.map((p, i) => (
+                  <li key={i} className="border-l-2 border-primary pl-3">
+                    <div className="font-medium">{p.name}</div>
+                    <div className="text-sm text-muted-foreground">{p.role}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            {people.filter((g) => g.group !== "Engineering Design Club").map((g) => (
+              <div key={g.group} className="h-full rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
                 <h3 className="font-display text-lg font-bold">{g.group}</h3>
                 <ul className="mt-3 space-y-2">
                   {g.list.map((p, i) => (
