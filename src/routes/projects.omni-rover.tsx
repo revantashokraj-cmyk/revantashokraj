@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import rover from "@/assets/omni-rover.jpg";
+import { RoverDownloads } from "@/components/RoverDownloads";
 
 export const Route = createFileRoute("/projects/omni-rover")({
   head: () => ({
@@ -215,6 +216,8 @@ function Rover() {
             </ul>
           </Card>
         </div>
+
+        <RoverDownloads />
 
         <p className="text-sm text-muted-foreground">
           Thanks to Professor Zand and Mr. Yamao and the SCU Young Scholars Program staff.
