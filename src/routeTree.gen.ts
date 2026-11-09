@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsOmniRoverRouteImport } from './routes/projects.omni-rover'
+import { Route as ProjectsSpiderRobotRouteImport } from './routes/projects.spider-robot'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const ProjectsOmniRoverRoute = ProjectsOmniRoverRouteImport.update({
   path: '/projects/omni-rover',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsSpiderRobotRoute = ProjectsSpiderRobotRouteImport.update({
+  id: '/projects/spider-robot',
+  path: '/projects/spider-robot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/omni-rover'
+  fullPaths: '/' | '/projects/omni-rover' | '/projects/spider-robot'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/omni-rover'
-  id: '__root__' | '/' | '/projects/omni-rover'
+  to: '/' | '/projects/omni-rover' | '/projects/spider-robot'
+  id: '__root__' | '/' | '/projects/omni-rover' | '/projects/spider-robot'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProjectsOmniRoverRoute: typeof ProjectsOmniRoverRoute
+  ProjectsSpiderRobotRoute: typeof ProjectsSpiderRobotRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsOmniRoverRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/spider-robot': {
+      id: '/projects/spider-robot'
+      path: '/projects/spider-robot'
+      fullPath: '/projects/spider-robot'
+      preLoaderRoute: typeof ProjectsSpiderRobotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProjectsOmniRoverRoute: ProjectsOmniRoverRoute,
+  ProjectsSpiderRobotRoute: ProjectsSpiderRobotRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
