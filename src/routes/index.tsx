@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { HeroAnimation } from "@/components/HeroAnimation";
+import { Button } from "@/components/ui/button";
 import { categories, projects, type Category } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
@@ -45,17 +46,17 @@ function Index() {
         </nav>
       </header>
 
-      <section className="blueprint mx-auto grid max-w-6xl items-center gap-10 border-y-2 border-foreground px-6 pb-20 pt-12 md:grid-cols-[1.1fr_1fr]">
+      <section className="home-hero blueprint border-y-2 border-foreground">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-12 md:grid-cols-[1.2fr_1fr]">
         <div>
-        <p className="mb-4 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-secondary-foreground">
+        <p className="mb-6 font-mono text-xs font-semibold uppercase text-accent">
           Engineering portfolio
         </p>
-        <h1 className="font-display text-5xl font-bold leading-[1.05] md:text-6xl">
-          Hi, I'm Revant.
+        <h1 className="font-display text-5xl font-bold uppercase leading-[1.05] md:text-6xl">
+          Revant<br />Ashokraj.
           <br />
-          I build <span className="text-primary">robots</span> that{" "}
-          <span className="text-leaf">move</span>.
         </h1>
+        <p className="mt-5 font-display text-2xl font-bold uppercase">I build <span className="text-primary">robots</span> that <span className="text-leaf">move.</span></p>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Projects I've designed and built on my own, with my Engineering Design Club, and through
           Santa Clara University's Young Scholars Program (ENGR1 &amp; ENGR1-Lab).
@@ -66,7 +67,7 @@ function Index() {
             ["1", "Award"],
             ["1", "Paper pending"],
           ].map(([n, l]) => (
-            <div key={l} className="rounded-xl border-2 border-foreground bg-card p-4 shadow-hard">
+            <div key={l} className="border-l-2 border-primary pl-4 py-2">
               <div className="font-display text-3xl font-bold">{n}</div>
               <div className="text-xs text-muted-foreground">{l}</div>
             </div>
@@ -74,21 +75,24 @@ function Index() {
         </div>
         </div>
         <HeroAnimation />
+        </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-6 pb-24">
+      <section id="projects" className="mx-auto max-w-6xl px-6 pt-10 pb-24">
         <h2 className="font-display text-3xl font-bold">Projects</h2>
         <div className="mt-6 flex flex-wrap gap-2">
           {(["All", ...categories] as const).map((c) => (
-            <button
+            <Button
               key={c}
               onClick={() => setFilter(c)}
-              className={`rounded-full border-2 border-foreground px-4 py-1.5 text-sm font-medium transition ${
+              variant="outline"
+              aria-pressed={filter === c}
+              className={`h-auto whitespace-normal border-2 border-foreground px-4 py-1.5 text-sm font-medium transition ${
                 filter === c ? "bg-foreground text-background" : "bg-card hover:bg-secondary"
               }`}
             >
               {c}
-            </button>
+            </Button>
           ))}
         </div>
 

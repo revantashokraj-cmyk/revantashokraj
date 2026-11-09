@@ -34,7 +34,7 @@
   --font-sans: "DM Sans", sans-serif;
   --color-leaf: var(--leaf);
   --color-leaf-foreground: var(--leaf-foreground);
-  --shadow-hard: 4px 4px 0 0 var(--foreground);
+  --shadow-hard: 5px 5px 0 0 var(--border);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -78,27 +78,27 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: oklch(0.94 0.03 80);
-  --foreground: oklch(0.27 0.04 210);
-  --card: oklch(0.98 0.015 82);
-  --card-foreground: oklch(0.27 0.04 210);
-  --popover: oklch(0.98 0.015 82);
-  --popover-foreground: oklch(0.25 0.03 250);
-  --primary: oklch(0.68 0.17 48);
-  --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.86 0.06 195);
-  --secondary-foreground: oklch(0.3 0.06 200);
-  --muted: oklch(0.9 0.035 78);
-  --muted-foreground: oklch(0.48 0.03 250);
-  --accent: oklch(0.72 0.09 190);
-  --accent-foreground: oklch(0.2 0.04 200);
-  --leaf: oklch(0.58 0.12 160);
-  --leaf-foreground: oklch(0.99 0.01 85);
+  --radius: 0rem;
+  --background: oklch(0.14 0.005 180);
+  --foreground: oklch(0.93 0.015 85);
+  --card: oklch(0.19 0.005 180);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.76 0.17 48);
+  --primary-foreground: var(--background);
+  --secondary: oklch(0.3 0.04 190);
+  --secondary-foreground: oklch(0.92 0.045 190);
+  --muted: oklch(0.25 0.005 180);
+  --muted-foreground: oklch(0.72 0.012 180);
+  --accent: oklch(0.78 0.1 185);
+  --accent-foreground: var(--background);
+  --leaf: oklch(0.8 0.13 155);
+  --leaf-foreground: var(--background);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.82 0.04 78);
-  --input: oklch(0.85 0.03 85);
+  --border: oklch(0.39 0.008 180);
+  --input: var(--border);
   --ring: oklch(0.7 0.18 50);
   --chart-1: oklch(0.7 0.18 50);
   --chart-2: oklch(0.6 0.13 150);
@@ -153,6 +153,9 @@
 }
 
 @layer base {
+  :where([class*="rounded"]) { border-radius: 0; }
+  :where([class*="tracking"]) { letter-spacing: 0; }
+  h1, h2, h3 { text-transform: uppercase; }
   * {
     border-color: var(--color-border);
   }
@@ -164,11 +167,23 @@
 }
 
 @utility blueprint {
-  background-image: linear-gradient(color-mix(in oklab, var(--secondary) 60%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--secondary) 60%, transparent) 1px, transparent 1px);
+   background-image: linear-gradient(color-mix(in oklab, var(--border) 25%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--border) 25%, transparent) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 @layer base { body { font-family: var(--font-sans); } }
+
+/* Square geometry is the portfolio-wide brutalist control and surface style. */
+[class*="rounded"] { border-radius: 0; }
+[class*="tracking"] { letter-spacing: 0; }
+.pcb-graphic { height: 480px; }
+.pcb-stage { width: min(100%, 320px); }
+.pcb-art { filter: grayscale(1) contrast(1.2); animation: pcb-drift 8s ease-in-out infinite; }
+.pcb-scan { animation: pcb-scan 6s ease-in-out infinite; }
+@keyframes pcb-drift { 0%, 100% { transform: rotate(-8deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-8px); } }
+@keyframes pcb-scan { 0%, 100% { top: 5%; opacity: 0; } 20%, 80% { opacity: 0.7; } 50% { top: 95%; } }
+@media (max-width: 767px) { .pcb-graphic { height: 340px; } .pcb-art { max-height: 275px; } }
+@media (prefers-reduced-motion: reduce) { .pcb-art, .pcb-scan { animation: none; } .pcb-scan { display: none; } }
 
 .draw { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw-in 2.4s ease-out forwards; }
 .hero-float { animation: hero-float 6s ease-in-out infinite; }
