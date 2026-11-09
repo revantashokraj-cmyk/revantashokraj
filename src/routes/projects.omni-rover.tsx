@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import rover from "@/assets/omni-rover.jpg";
 import { RoverDownloads } from "@/components/RoverDownloads";
 import { RoverFirmware } from "@/components/RoverFirmware";
+import { RoverAssembly } from "@/components/RoverAssembly";
 
 export const Route = createFileRoute("/projects/omni-rover")({
   head: () => ({
@@ -217,6 +218,8 @@ function Rover() {
             </ul>
           </Card>
         </div>
+
+        <RoverAssembly />
 
         <RoverDownloads />
 
