@@ -11,6 +11,7 @@ export type Project = {
   tags: string[];
   image?: string;
   badge?: string;
+  href?: "/projects/omni-rover";
 };
 
 export const categories: Category[] = [
@@ -37,12 +38,13 @@ export const projects: Project[] = [
   {
     title: "Omnidirectional Rover + 6-DOF Arm",
     category: "SCU YSP ENGR1",
+    href: "/projects/omni-rover",
     summary:
       "A collision-avoiding rover that can drive in any direction, with a six-axis robotic arm mounted on top.",
     details: [
-      "Omnidirectional drive with obstacle avoidance",
-      "6-degree-of-freedom robotic arm",
-      "Research paper pending clearance from SCU",
+      "4 mecanum wheels + ultrasonic avoidance (25 cm)",
+      "6-DOF arm: 3x MG995 + 3x MG90 servos",
+      "80% maneuvering success, built on a $20 budget",
     ],
     tags: ["Arduino", "Robotics", "Sensors", "Research"],
     image: rover,

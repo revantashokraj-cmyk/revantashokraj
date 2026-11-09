@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { categories, projects, type Category } from "@/lib/projects";
 
@@ -124,6 +124,11 @@ function Index() {
                     </span>
                   ))}
                 </div>
+                {p.href && (
+                  <Link to={p.href} className="mt-6 inline-block rounded-full border-2 border-foreground bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">
+                    Read the research →
+                  </Link>
+                )}
               </div>
             </article>
           ))}
