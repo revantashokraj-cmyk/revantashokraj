@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Use global semantic theme tokens and square surface geometry for portfolio styling so every project page shares the same visual system.
+- The homepage PCB graphic uses the original published PCBWay board preview, not an invented circuit or fabrication-ready Gerber; preserve visible source credit.
