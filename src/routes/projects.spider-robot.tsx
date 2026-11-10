@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import spider from "@/assets/spider-robot.jpg";
+import { BlueprintPreview } from "@/components/BlueprintPreview";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/projects/spider-robot")({
   head: () => ({
@@ -73,7 +75,7 @@ const steps = [
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+    <section className="detail-section">
       <h2 className="font-display text-2xl font-bold">{title}</h2>
       <div className="mt-4 text-muted-foreground">{children}</div>
     </section>
@@ -83,15 +85,9 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
 function Spider() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-        <Link to="/" className="font-display text-lg font-bold">
-          RA<span className="text-primary">.</span>
-        </Link>
-        <Link to="/" className="text-sm font-medium hover:text-primary">← All projects</Link>
-      </header>
-
-      <main className="mx-auto max-w-5xl space-y-8 px-6 pb-24">
-        <div className="blueprint pt-6">
+      <main id="main-content" className="detail-page mx-auto max-w-5xl space-y-8 px-6 pb-24 pt-6">
+        <Link to="/" hash="projects" className="text-sm text-muted-foreground">← All projects</Link>
+        <div className="blueprint py-8">
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
               Engineering Design Club
@@ -112,13 +108,8 @@ function Spider() {
           </p>
         </div>
 
-        <img
-          src={spider}
-          alt="Blueprint drawing of the quadruped spider robot"
-          width={1024}
-          height={768}
-          className="aspect-[4/3] w-full rounded-2xl border-2 border-foreground object-cover shadow-hard"
-        />
+        <BlueprintPreview src={spider} title="Quadruped Spider Robot" />
+        <p className="text-xs text-muted-foreground">Illustrative drawing · source design by Mert Kilic · not a dimensioned fabrication plan.</p>
 
         <Card title="What it is">
           <p>
@@ -154,7 +145,7 @@ function Spider() {
               ))}
             </ul>
             <p className="mt-4 text-sm">
-              Twelve of these, four per leg, are what gives the robot its walking motion.
+              Three joints per leg, across four legs, give the robot twelve independently controlled servo joints.
             </p>
           </Card>
         </div>
@@ -179,7 +170,7 @@ function Spider() {
             </table>
           </div>
           <p className="mt-4 text-sm">
-            The two electrolytic capacitors sit across the supply to absorb the current spikes when
+            The electrolytic capacitors sit across the supply to absorb the current spikes when
             all twelve servos move at once; the DPDT latching switch is the main power cut, and the
             LED behind a 330 Ω resistor shows when the board is live.
           </p>
@@ -241,14 +232,14 @@ function Spider() {
             schematic, board files, printed part STLs and both sketches are on the original project
             page.
           </p>
-          <a
+          <p className="mt-3 text-sm">Local 3D previews and combined STL downloads are awaiting the source part files; PCBWay restricts access to its downloads.</p>
+          <Button asChild variant="secondary" className="mt-4 h-auto whitespace-normal"><a
             href="https://www.pcbway.com/project/shareproject/Quadruped_Spider_Robot_3D_Printed_Parts_SG90_Servo_Motor_Arduino_Nano_10107fe3.html"
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-block rounded-full border-2 border-foreground bg-secondary px-4 py-2 text-sm font-bold text-secondary-foreground"
           >
             Open the original project →
-          </a>
+          </a></Button>
         </Card>
       </main>
     </div>

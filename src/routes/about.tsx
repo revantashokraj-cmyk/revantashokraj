@@ -23,10 +23,10 @@ const titles = [
 ];
 
 const programs = [
-  { type: "Summer program", name: "SCU Young Scholars — ENGR1 & ENGR1-Lab", note: "Built the omnidirectional rover; won Judges' Favorite." },
-  { type: "Bootcamp", name: "UC Berkeley Design Build Bootcamp", note: "(add year and what you built)" },
-  { type: "Hackathon", name: "(add hackathon name)", note: "(add year, team and project)" },
-  { type: "Club", name: "Engineering Design Club", note: "Team design projects (details coming soon)." },
+  { type: "Summer program", name: "SCU Young Scholars — ENGR1 & ENGR1-Lab", note: "Built the omnidirectional rover; won Judges' Favorite.", href: "/projects/omni-rover" as const },
+  { type: "Bootcamp", name: "UC Berkeley Design Build Bootcamp", note: "Program details to be added.", href: undefined },
+  { type: "Hackathon", name: "Hackathons", note: "Events and projects to be added.", href: undefined },
+  { type: "Club", name: "Engineering Design Club", note: "Built the quadruped spider robot as a club project.", href: "/projects/spider-robot" as const },
 ];
 
 const people: { group: string; list: { name: string; role: string }[] }[] = [
@@ -36,7 +36,7 @@ const people: { group: string; list: { name: string; role: string }[] }[] = [
   ] },
   { group: "SCU professors & TAs", list: [
     { name: "Professor Zand", role: "Professor, SCU Young Scholars ENGR1" },
-    { name: "Mr. Yamao", role: "Instructor / TA, SCU Young Scholars" },
+    { name: "Mr. Yamao", role: "SCU Young Scholars support" },
   ] },
   { group: "SCU staff", list: [
     { name: "SCU Young Scholars Program staff", role: "Program support" },
@@ -63,12 +63,8 @@ const people: { group: string; list: { name: string; role: string }[] }[] = [
 function About() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-        <Link to="/" className="font-display text-lg font-bold">RA<span className="text-primary">.</span></Link>
-        <Link to="/" className="text-sm font-medium hover:text-primary">← Projects</Link>
-      </header>
-      <main className="mx-auto max-w-5xl space-y-10 px-6 pb-24">
-        <section className="blueprint rounded-2xl border-2 border-foreground bg-card p-8 shadow-hard">
+      <main id="main-content" className="about-page mx-auto max-w-5xl space-y-12 px-6 pb-24 pt-8">
+        <section className="blueprint border-y border-border py-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">About me</p>
           <h1 className="mt-2 font-display text-4xl font-bold md:text-5xl">Revant Ashokraj</h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
@@ -82,7 +78,7 @@ function About() {
           <h2 className="font-display text-2xl font-bold">Titles & recognition</h2>
           <ul className="mt-4 grid gap-3 md:grid-cols-2">
             {titles.map((t) => (
-              <li key={t} className="rounded-xl border-2 border-foreground bg-card p-4">
+              <li key={t} className="feedback-item border border-border bg-card p-5">
                 <span className="text-leaf">▸</span> {t}
               </li>
             ))}
@@ -94,10 +90,11 @@ function About() {
           <p className="mt-2 text-muted-foreground">Camps, bootcamps and hackathons I've taken part in.</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {programs.map((p, i) => (
-              <div key={i} className="rounded-xl border-2 border-foreground bg-card p-5">
+              <div key={i} className="feedback-item relative flex flex-col border border-border bg-card p-5">
                 <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">{p.type}</span>
                 <h3 className="mt-3 font-display text-lg font-bold">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{p.note}</p>
+                {p.href && <Link to={p.href} className="mt-auto pt-4 text-sm font-medium text-accent">View project ↗</Link>}
               </div>
             ))}
           </div>
@@ -107,11 +104,11 @@ function About() {
           <h2 className="font-display text-2xl font-bold">Thank you</h2>
           <p className="mt-2 text-muted-foreground">None of these builds happened alone.</p>
           {people.filter((g) => g.group === "Engineering Design Club").map((g) => (
-            <div key={g.group} className="mt-6 rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+            <div key={g.group} className="mt-6 border-y border-border py-6">
               <h3 className="font-display text-lg font-bold">{g.group}</h3>
               <ul className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
                 {g.list.map((p, i) => (
-                  <li key={i} className="border-l-2 border-primary pl-3">
+                  <li key={i} className="person-item border-l-2 border-primary pl-3 py-2">
                     <div className="font-medium">{p.name}</div>
                     <div className="text-sm text-muted-foreground">{p.role}</div>
                   </li>
@@ -121,11 +118,11 @@ function About() {
           ))}
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {people.filter((g) => g.group !== "Engineering Design Club").map((g) => (
-              <div key={g.group} className="h-full rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+              <div key={g.group} className="h-full border-t border-border py-6">
                 <h3 className="font-display text-lg font-bold">{g.group}</h3>
                 <ul className="mt-3 space-y-2">
                   {g.list.map((p, i) => (
-                    <li key={i}>
+                    <li key={i} className="person-item py-2">
                       <div className="font-medium">{p.name}</div>
                       <div className="text-sm text-muted-foreground">{p.role}</div>
                     </li>
