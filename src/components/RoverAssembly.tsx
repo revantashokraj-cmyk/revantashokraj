@@ -1,50 +1,22 @@
 import { useState } from "react";
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { StlViewer } from "@/components/StlViewer";
 import assembled from "@/assets/rover-views/Rover_Assembled.stl.asset.json";
 import exploded from "@/assets/rover-views/Rover_Exploded.stl.asset.json";
 import { formatSize } from "@/lib/rover-parts";
-
 const views = {
   assembled: { label: "Fully assembled", file: "Rover_Assembled.stl", ...assembled },
   exploded: { label: "Exploded view", file: "Rover_Exploded.stl", ...exploded },
 };
-
 export function RoverAssembly() {
   const [view, setView] = useState<keyof typeof views>("assembled");
   const v = views[view];
-  return (
-    <section className="rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 className="font-display text-2xl font-bold">The finished rover in 3D</h2>
-          <p className="mt-1 max-w-xl text-muted-foreground">
-            Rendered from the full OpenSCAD assembly: bed, servo mounts, wheels, enclosure, lid, electronics and the
-            6-DOF arm. Switch to the exploded view to see where each part goes.
-          </p>
-        </div>
-        <div className="flex gap-2">
-          {(Object.keys(views) as (keyof typeof views)[]).map((k) => (
-            <button
-              key={k}
-              onClick={() => setView(k)}
-              className={`rounded-full border-2 border-foreground px-4 py-1.5 text-sm font-semibold ${
-                view === k ? "bg-foreground text-background" : "bg-card hover:bg-secondary"
-              }`}
-            >
-              {views[k].label}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div className="mt-6 h-[480px]">
-        <StlViewer url={v.url} />
-      </div>
-      <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
-        <span>Drag to rotate · scroll to zoom · large file, may take a few seconds</span>
-        <a href={v.url} download={v.file} className="rounded-full border-2 border-foreground bg-primary px-4 py-1.5 text-xs font-bold text-primary-foreground">
-          Download {v.label.toLowerCase()} ({formatSize(v.size)})
-        </a>
-      </div>
-    </section>
-  );
+  return <section id="assembly" className="detail-section">
+    <div className="flex flex-wrap items-end justify-between gap-4"><div><h2 className="font-display text-2xl font-bold">The finished rover in 3D</h2><p className="mt-2 text-sm text-muted-foreground">Original OpenSCAD assembly · bed, wheels, enclosure and six-axis arm.</p></div>
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Assembly view">{(Object.keys(views) as (keyof typeof views)[]).map(k => <Button key={k} onClick={() => setView(k)} aria-pressed={view === k} variant={view === k ? "secondary" : "outline"}>{views[k].label}</Button>)}</div>
+    </div>
+    <div className="mt-6 h-[350px] sm:h-[480px]"><StlViewer url={v.url} name={v.label} /></div>
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="max-w-xl text-xs text-muted-foreground">Source-file note: an arm component is offset above the chassis in the supplied assembly.</p><Button asChild size="sm"><a href={v.url} download={v.file}><Download />Download {v.label.toLowerCase()} · {formatSize(v.size)}</a></Button></div>
+  </section>;
 }
