@@ -87,8 +87,9 @@ function Rover() {
             </span>
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-            Omnidirectional Collision-Avoiding Rover with a 6-DOF Robotic Arm
+            Omnidirectional Rover<br /><span className="text-accent">+ 6-DOF Arm</span>
           </h1>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">A collision-avoiding, mecanum-wheel rover with an onboard robotic arm.</p>
           <p className="mt-4 text-muted-foreground">
             Revant Ashokraj, Ethan Li, Cameron VanHaren · Santa Clara University Young Scholars Program
           </p>
@@ -223,6 +224,10 @@ function Rover() {
           Thanks to Professor Zand and Mr. Yamao and the SCU Young Scholars Program staff.
           {" "}<Link to="/about" className="text-accent underline underline-offset-4">Meet the team →</Link>
         </p>
+        <nav aria-label="More from the portfolio" className="flex flex-wrap justify-between gap-4 border-t border-border pt-6 text-sm">
+          <Link to="/" hash="projects" className="text-accent">← All projects</Link>
+          <Link to="/projects/spider-robot" className="text-accent">Next project · Spider robot ↗</Link>
+        </nav>
       </main>
     </div>
   );

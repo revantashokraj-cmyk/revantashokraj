@@ -1,6 +1,6 @@
 import { Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 export function BlueprintPreview({ src, title }: { src: string; title: string }) {
   return <Dialog>
@@ -12,6 +12,7 @@ export function BlueprintPreview({ src, title }: { src: string; title: string })
     </DialogTrigger>
     <DialogContent className="max-h-[90dvh] max-w-5xl overflow-auto border-border bg-background p-6">
       <DialogTitle className="pr-6 font-display">{title}</DialogTitle>
+      <DialogDescription className="sr-only">Illustrative technical drawing of {title}.</DialogDescription>
       <img src={src} alt={`Enlarged illustrative blueprint of ${title}`} className="max-h-[72dvh] w-full object-contain" />
     </DialogContent>
   </Dialog>;

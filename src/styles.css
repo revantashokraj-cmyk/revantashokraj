@@ -226,6 +226,21 @@
 
 .site-navigation { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--background) 82%, transparent); backdrop-filter: blur(18px) saturate(1.4); }
 .site-navigation nav a, .section-navigation a { position: relative; color: var(--muted-foreground); padding-block: 8px; }
+.site-navigation nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.section-navigation a { display: inline-flex; align-items: center; min-height: 44px; }
+.detail-page h1 { text-wrap: balance; }
+.about-page p, .detail-page p { line-height: 1.65; }
+.about-page section, .detail-page section, .detail-page [id] { scroll-margin-top: 100px; }
+.detail-page dl > div { min-width: 0; }
+.detail-page dd { overflow-wrap: anywhere; }
+.detail-page > nav:last-child a, .about-page > nav:last-child a { padding-block: 12px; }
+@media (max-width: 639px) {
+  .detail-page h1 { font-size: 32px; line-height: 1.15; }
+  .detail-page, .about-page { padding-inline: 20px; }
+  .ui-control { min-height: 44px; }
+  .ui-control[aria-label] { min-width: 44px; }
+  .section-navigation { column-gap: 20px; row-gap: 0; }
+}
 .site-navigation nav a::after, .section-navigation a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: var(--primary); transform: scaleX(0); transform-origin: right; transition: transform 260ms var(--ease-out); }
 .site-navigation nav a:hover, .site-navigation nav a[aria-current="page"], .section-navigation a:hover { color: var(--foreground); }
 .site-navigation nav a:hover::after, .site-navigation nav a[aria-current="page"]::after, .section-navigation a:hover::after { transform: scaleX(1); transform-origin: left; }
