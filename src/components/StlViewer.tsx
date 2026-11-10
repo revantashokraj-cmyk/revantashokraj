@@ -34,9 +34,19 @@ export function StlViewer({ url, name = "STL model" }: { url: string; name?: str
       const geo = new STLLoader().parse(data);
       geo.computeVertexNormals(); geo.center(); geo.computeBoundingSphere();
       const radius = Math.max(geo.boundingSphere?.radius ?? 50, 1);
+      // Canvas resolves semantic OKLCH tokens to sRGB; Three.js doesn't parse OKLCH.
+      const colorFromToken = (token: string) => {
+        const canvas = document.createElement("canvas"); canvas.width = 1; canvas.height = 1;
+        const context = canvas.getContext("2d");
+        if (!context) throw new Error("Color conversion unavailable");
+        context.fillStyle = getComputedStyle(el).getPropertyValue(token).trim();
+        context.fillRect(0, 0, 1, 1);
+        const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+        return new THREE.Color().setRGB(r / 255, g / 255, b / 255, THREE.SRGBColorSpace);
+      };
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       const material = new THREE.MeshStandardMaterial({
-        color: getComputedStyle(el).getPropertyValue("--viewer-model").trim(),
+        color: colorFromToken("--viewer-model"),
         metalness: 0.16, roughness: 0.52,
       });
       const width = Math.max(el.clientWidth, 1), height = Math.max(el.clientHeight, 1);
@@ -46,8 +56,8 @@ export function StlViewer({ url, name = "STL model" }: { url: string; name?: str
       el.appendChild(renderer.domElement);
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(40, width / height, radius / 100, radius * 100);
-      scene.add(new THREE.AmbientLight(getComputedStyle(el).getPropertyValue("--viewer-light").trim(), 1.8));
-      const light = new THREE.DirectionalLight(getComputedStyle(el).getPropertyValue("--viewer-light").trim(), 3);
+      scene.add(new THREE.AmbientLight(colorFromToken("--viewer-light"), 1.8));
+      const light = new THREE.DirectionalLight(colorFromToken("--viewer-light"), 3);
       light.position.set(1, 2, 3); scene.add(light);
       const mesh = new THREE.Mesh(geo, material); mesh.rotation.x = -Math.PI / 2; scene.add(mesh);
       const controls = new OrbitControls(camera, renderer.domElement);
