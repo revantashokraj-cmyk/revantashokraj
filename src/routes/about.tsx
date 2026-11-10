@@ -32,6 +32,8 @@ const programs = [
   { type: "Flight experience", name: "EAA Young Eagles", note: "Took multiple Young Eagles flights as my interest in aviation grew from a middle-school flight simulator into real-world experience.", href: undefined },
   { type: "Training · In progress", name: "Sporty's Flight Ground School", note: "Currently studying toward a private pilot license, with a long-term goal of becoming a commercial pilot.", href: undefined },
   { type: "Club", name: "Engineering Design Club", note: "Founded a hands-on engineering community and led our quadruped spider robot build using Mert Kilic's open-source design.", href: "/projects/spider-robot" as const },
+  { type: "Hackathon", name: "Zero to Demo · Slash Compute", note: "Worked with three teammates on a shared Mac compute system. I built the web frontend with Lovable.", href: "/projects/slash-compute" as const },
+  { type: "Hackathon · Since 2023", name: "Island Hacks", note: "Attending annually since 2023, alongside my robotics and engineering club work.", href: undefined },
 ];
 
 // Officer roles as supplied by Revant; notes carry each person's current path.
@@ -150,7 +152,7 @@ function About() {
             </div>
             <div className="person-item border-l-2 border-leaf py-2 pl-4">
               <dt className="font-display text-lg font-bold">Gemini spacecraft replica</dt>
-              <dd className="mt-2 text-sm text-muted-foreground">Helped create a replica of the Gemini spacecraft, bringing my engineering interests into a space-history project.</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">I lead the replica build. Starting with an existing bare frame, I built the flooring, interior parts, control-panel frame and panel. We incorporated a real aircraft seat; intricate control-panel details are still in progress.</dd>
             </div>
           </dl>
         </section>
@@ -163,6 +165,8 @@ function About() {
             resources and taught fundamentals through small projects and hands-on labs before
             taking on our quadruped robot. Members who started as beginners now help guide newer students.
           </p>
+
+          <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">Our current project is redesigning and rebuilding the SCU rover. The original was dismantled to return borrowed SCU components, so this club build is a new iteration rather than the original award-winning prototype.</p>
 
           <div className="feedback-item mt-5 border-l-2 border-primary bg-card p-6">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary">Alumni Mentorship Network</p>

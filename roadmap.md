@@ -4,7 +4,7 @@
 - [x] Polish navigation, layouts, hover, focus and touch feedback
 - [x] Verify 3D controls, all 27 STL asset links, representative downloads, firmware and mobile flow
 - [x] Add supplied engineering and aviation programs, leadership titles, museum work and mentors to About
-- [ ] Named hackathon entries (blocked: waiting on specific events and participation details)
+- [x] Add Zero to Demo / Slash Compute, annual Island Hacks participation, rover rebuild, spider grant and Gemini fabrication leadership
 - [x] Restore omitted forearm mesh in assembled and exploded rover STL views and downloads
 - [x] Replace landing animation with original spider PCB preview (Gerber download restricted)
 - [ ] Replace PCB preview with Gerber rendering (blocked: waiting on Gerber upload from Revant)

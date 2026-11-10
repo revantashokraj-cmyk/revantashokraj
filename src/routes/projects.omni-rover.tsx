@@ -215,6 +215,9 @@ function Rover() {
         </div>
 
         <RoverAssembly />
+        <Card title="Current work · Engineering Design Club rebuild">
+          <p>I'm now redesigning and rebuilding this rover with the Engineering Design Club. The original SCU prototype was dismantled because some components belonged to the university. The results and award above document that original build; the club iteration is still in progress.</p>
+        </Card>
 
         <RoverDownloads />
 

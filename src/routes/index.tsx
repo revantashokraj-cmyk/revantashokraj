@@ -31,6 +31,7 @@ const catStyle: Record<Category, string> = {
   "Engineering Design Club": "bg-secondary text-secondary-foreground",
   "SCU YSP ENGR1": "bg-primary text-primary-foreground",
   "SCU YSP ENGR1-Lab": "bg-leaf text-leaf-foreground",
+  Hackathons: "bg-accent text-accent-foreground",
 };
 
 function Index() {
@@ -52,7 +53,7 @@ function Index() {
         <p className="mt-5 font-display text-2xl font-bold uppercase">I build <span className="text-primary">robots</span> that <span className="text-leaf">move.</span></p>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Projects I've designed and built on my own, with my Engineering Design Club, and through
-          Santa Clara University's Young Scholars Program (ENGR1 &amp; ENGR1-Lab).
+          Santa Clara University's Young Scholars Program (ENGR1 &amp; ENGR1-Lab), plus software built at hackathons.
         </p>
         <div className="mt-10 grid max-w-lg grid-cols-3 gap-4">
           {[
