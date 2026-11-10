@@ -1,4 +1,9 @@
 # Roadmap
+- [ ] Audit all prior requests and correct inaccurate content
+- [ ] Polish navigation, layouts, hover, focus and touch feedback
+- [ ] Verify 3D controls, every STL download, firmware and mobile flow
+- [ ] Program details and additional titles (blocked: waiting on names, years and descriptions)
+- [ ] Assembled rover arm placement (blocked: corrected assembly positions needed from Revant)
 - [x] Replace landing animation with original spider PCB preview (Gerber download restricted)
 - [ ] Replace PCB preview with Gerber rendering (blocked: waiting on Gerber upload from Revant)
 - [x] Restyle the portfolio in dark brutalist style
