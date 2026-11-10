@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import spider from "@/assets/spider-robot.jpg";
 import { BlueprintPreview } from "@/components/BlueprintPreview";
 import { Button } from "@/components/ui/button";
+import { SpiderSourceDownloads } from "@/components/SpiderSourceDownloads";
 
 export const Route = createFileRoute("/projects/spider-robot")({
   head: () => ({
@@ -232,7 +233,6 @@ function Spider() {
             schematic, board files, printed part STLs and both sketches are on the original project
             page.
           </p>
-          <p className="mt-3 text-sm">Local 3D previews and combined STL downloads are awaiting the source part files; PCBWay restricts access to its downloads.</p>
           <Button asChild variant="secondary" className="mt-4 h-auto whitespace-normal"><a
             href="https://www.pcbway.com/project/shareproject/Quadruped_Spider_Robot_3D_Printed_Parts_SG90_Servo_Motor_Arduino_Nano_10107fe3.html"
             target="_blank"
@@ -241,6 +241,7 @@ function Spider() {
             Open the original project →
           </a></Button>
         </Card>
+        <SpiderSourceDownloads />
       </main>
     </div>
   );

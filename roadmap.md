@@ -3,13 +3,14 @@
 - [x] Polish navigation, layouts, hover, focus and touch feedback
 - [x] Verify 3D controls, all 27 STL asset links, representative downloads, firmware and mobile flow
 - [ ] Program details and additional titles (blocked: waiting on names, years and descriptions)
-- [ ] Fix rover assembly forearm visibility and placement from supplied CAD sources
+- [x] Restore omitted forearm mesh in assembled and exploded rover STL views and downloads
 - [x] Replace landing animation with original spider PCB preview (Gerber download restricted)
 - [ ] Replace PCB preview with Gerber rendering (blocked: waiting on Gerber upload from Revant)
 - [x] Restyle the portfolio in dark brutalist style
 - [x] Add missing rover parts (bed, servo mounts, enclosure, lid, wheel hub, arm pin/baseplate)
 - [x] Redo landing graphic: new detailed machine (not a project), Slash Compute style
 - [x] Fully assembled rover 3D view (rendered from the SCAD assembly)
-- [ ] Retrieve spider source files and add part downloads, combined STL and complete 3D assembly (blocked until source files are accessible)
+- [x] Add official PCBWay download links for all eight spider part files
+- [ ] Spider local part previews, combined STL and complete 3D assembly (blocked: official downloads require PCBWay sign-in; source STL uploads needed)
 - [x] Even out About page layout
 - [ ] Club member roles (blocked: waiting on roles list from Revant)
