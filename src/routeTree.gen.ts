@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ProjectsOmniRoverRouteImport } from './routes/projects.omni-rover'
+import { Route as ProjectsSlashComputeRouteImport } from './routes/projects.slash-compute'
 import { Route as ProjectsSpiderRobotRouteImport } from './routes/projects.spider-robot'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const ProjectsOmniRoverRoute = ProjectsOmniRoverRouteImport.update({
   path: '/projects/omni-rover',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsSlashComputeRoute = ProjectsSlashComputeRouteImport.update({
+  id: '/projects/slash-compute',
+  path: '/projects/slash-compute',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsSpiderRobotRoute = ProjectsSpiderRobotRouteImport.update({
   id: '/projects/spider-robot',
   path: '/projects/spider-robot',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/slash-compute': typeof ProjectsSlashComputeRoute
   '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/slash-compute': typeof ProjectsSlashComputeRoute
   '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRoutesById {
@@ -52,18 +60,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/projects/omni-rover': typeof ProjectsOmniRoverRoute
+  '/projects/slash-compute': typeof ProjectsSlashComputeRoute
   '/projects/spider-robot': typeof ProjectsSpiderRobotRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/projects/omni-rover' | '/projects/spider-robot'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/projects/omni-rover'
+    | '/projects/slash-compute'
+    | '/projects/spider-robot'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/projects/omni-rover' | '/projects/spider-robot'
+  to:
+    | '/'
+    | '/about'
+    | '/projects/omni-rover'
+    | '/projects/slash-compute'
+    | '/projects/spider-robot'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/projects/omni-rover'
+    | '/projects/slash-compute'
     | '/projects/spider-robot'
   fileRoutesById: FileRoutesById
 }
@@ -71,6 +91,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ProjectsOmniRoverRoute: typeof ProjectsOmniRoverRoute
+  ProjectsSlashComputeRoute: typeof ProjectsSlashComputeRoute
   ProjectsSpiderRobotRoute: typeof ProjectsSpiderRobotRoute
 }
 
@@ -97,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsOmniRoverRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/slash-compute': {
+      id: '/projects/slash-compute'
+      path: '/projects/slash-compute'
+      fullPath: '/projects/slash-compute'
+      preLoaderRoute: typeof ProjectsSlashComputeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/spider-robot': {
       id: '/projects/spider-robot'
       path: '/projects/spider-robot'
@@ -111,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ProjectsOmniRoverRoute: ProjectsOmniRoverRoute,
+  ProjectsSlashComputeRoute: ProjectsSlashComputeRoute,
   ProjectsSpiderRobotRoute: ProjectsSpiderRobotRoute,
 }
 export const routeTree = rootRouteImport

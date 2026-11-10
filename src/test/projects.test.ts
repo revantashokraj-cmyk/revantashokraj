@@ -11,4 +11,10 @@ describe("Project affiliations from Revant's requests", () => {
       expect(projectsInCategory(category).map(p => p.title)).toContain("Omnidirectional Rover + 6-DOF Arm");
     }
   });
+  it("also lists the rover being rebuilt with Engineering Design Club", () => {
+    expect(projectsInCategory("Engineering Design Club").map(p => p.title)).toContain("Omnidirectional Rover + 6-DOF Arm");
+  });
+  it("lists Slash Compute as a hackathon project", () => {
+    expect(projectsInCategory("Hackathons").map(p => p.title)).toEqual(["Slash Compute"]);
+  });
 });

@@ -122,6 +122,10 @@ function Spider() {
             carries power and the servo control lines back to an Arduino Nano.
           </p>
         </Card></div>
+        <section className="detail-section">
+          <h2 className="font-display text-2xl font-bold">Club funding</h2>
+          <p className="mt-4 text-muted-foreground">I secured a <strong className="text-foreground">$300 grant</strong> from our school's club grant committee to support this Engineering Design Club build.</p>
+        </section>
 
         <div className="grid gap-8 md:grid-cols-2">
           <Card title="Technical specs">
