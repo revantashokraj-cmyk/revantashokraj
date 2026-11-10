@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { HeroAnimation } from "@/components/HeroAnimation";
 import { Button } from "@/components/ui/button";
-import { categories, projects, type Category } from "@/lib/projects";
+import { categories, projects, projectsInCategory, type Category } from "@/lib/projects";
+import { ArrowUpRight, Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,18 +35,11 @@ const catStyle: Record<Category, string> = {
 
 function Index() {
   const [filter, setFilter] = useState<Category | "All">("All");
-  const shown = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const shown = projectsInCategory(filter);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <span className="font-display text-lg font-bold">RA<span className="text-primary">.</span></span>
-        <nav className="flex gap-6 text-sm font-medium">
-          <a href="#projects" className="hover:text-primary">Projects</a>
-          <Link to="/about" className="hover:text-primary">About</Link>
-        </nav>
-      </header>
-
+      <main id="main-content">
       <section className="home-hero blueprint border-y-2 border-foreground">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-12 md:grid-cols-[1.2fr_1fr]">
         <div>
@@ -54,7 +48,6 @@ function Index() {
         </p>
         <h1 className="font-display text-5xl font-bold uppercase leading-[1.05] md:text-6xl">
           Revant<br />Ashokraj.
-          <br />
         </h1>
         <p className="mt-5 font-display text-2xl font-bold uppercase">I build <span className="text-primary">robots</span> that <span className="text-leaf">move.</span></p>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
@@ -67,7 +60,7 @@ function Index() {
             ["1", "Award"],
             ["1", "Paper pending"],
           ].map(([n, l]) => (
-            <div key={l} className="border-l-2 border-primary pl-4 py-2">
+            <div key={l} className="stat-item border-l-2 border-primary pl-4 py-2">
               <div className="font-display text-3xl font-bold">{n}</div>
               <div className="text-xs text-muted-foreground">{l}</div>
             </div>
@@ -79,7 +72,7 @@ function Index() {
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 pt-10 pb-24">
-        <h2 className="font-display text-3xl font-bold">Projects</h2>
+        <div className="flex items-baseline justify-between gap-4"><h2 className="font-display text-3xl font-bold">Projects</h2><span aria-live="polite" className="font-mono text-xs text-muted-foreground">{shown.length} / {projects.length}</span></div>
         <div className="mt-6 flex flex-wrap gap-2">
           {(["All", ...categories] as const).map((c) => (
             <Button
@@ -96,24 +89,24 @@ function Index() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
+        <div className="project-grid mt-10 grid gap-8 md:grid-cols-2">
           {shown.map((p) => (
             <article
               key={p.title}
-              className="overflow-hidden rounded-2xl border-2 border-foreground bg-card shadow-hard transition hover:-translate-y-1"
+              className="project-card relative flex flex-col overflow-hidden border border-border bg-card"
             >
               {p.image && (
                 <div className="relative">
                   <img src={p.image} alt={p.title} className="aspect-[4/3] w-full object-cover" loading="lazy" />
                   {p.badge && (
-                    <span className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
-                      🏆 {p.badge}
+                    <span className="absolute left-4 top-4 inline-flex items-center gap-2 bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
+                      <Trophy className="h-3 w-3" />{p.badge}
                     </span>
                   )}
                 </div>
               )}
-              <div className="p-6">
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${catStyle[p.category]}`}>
+              <div className="flex flex-1 flex-col p-6">
+                <span className={`self-start px-3 py-1 text-xs font-semibold ${catStyle[p.category]}`}>
                   {p.category}
                 </span>
                 <h3 className="mt-4 font-display text-2xl font-bold">{p.title}</h3>
@@ -134,9 +127,7 @@ function Index() {
                   ))}
                 </div>
                 {p.href && (
-                  <Link to={p.href} className="mt-6 inline-block rounded-full border-2 border-foreground bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">
-                    {p.cta ?? "Read more →"}
-                  </Link>
+                  <Button asChild variant="link" className="project-link mt-6 self-start p-0 font-bold"><Link to={p.href}>{p.cta?.replace(" →", "") ?? "Read more"}<ArrowUpRight /></Link></Button>
                 )}
               </div>
             </article>
@@ -148,6 +139,7 @@ function Index() {
           )}
         </div>
       </section>
+      </main>
 
       <footer className="border-t-2 border-foreground py-8 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} Revant Ashokraj

@@ -31,3 +31,6 @@ use the editor.
 
 - Use global semantic theme tokens and square surface geometry for portfolio styling so every project page shares the same visual system.
 - The homepage PCB graphic uses the original published PCBWay board preview, not an invented circuit or fabrication-ready Gerber; preserve visible source credit.
+- Keep shared navigation in the root layout; detail pages use in-page section anchors and consistent unframed sections for coherent navigation.
+- Load and dispose STL renderers in browser effects, expose accessible view controls, and retain retry states for failed asset loads.
+- Project filtering supports multiple program affiliations; test user-specified affiliations independently of UI styling.

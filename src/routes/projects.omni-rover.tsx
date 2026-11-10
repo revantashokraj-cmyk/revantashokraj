@@ -3,6 +3,8 @@ import rover from "@/assets/omni-rover.jpg";
 import { RoverDownloads } from "@/components/RoverDownloads";
 import { RoverFirmware } from "@/components/RoverFirmware";
 import { RoverAssembly } from "@/components/RoverAssembly";
+import { BlueprintPreview } from "@/components/BlueprintPreview";
+import { Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/projects/omni-rover")({
   head: () => ({
@@ -60,7 +62,7 @@ const arch = [
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border-2 border-foreground bg-card p-6 shadow-hard">
+    <section className="detail-section">
       <h2 className="font-display text-2xl font-bold">{title}</h2>
       <div className="mt-4 text-muted-foreground">{children}</div>
     </section>
@@ -70,18 +72,12 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
 function Rover() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-        <Link to="/" className="font-display text-lg font-bold">
-          RA<span className="text-primary">.</span>
-        </Link>
-        <Link to="/" className="text-sm font-medium hover:text-primary">← All projects</Link>
-      </header>
-
-      <main className="mx-auto max-w-5xl space-y-8 px-6 pb-24">
-        <div className="blueprint pt-6">
+      <main id="main-content" className="detail-page mx-auto max-w-5xl space-y-8 px-6 pb-24 pt-6">
+        <Link to="/" hash="projects" className="text-sm text-muted-foreground">← All projects</Link>
+        <div className="blueprint py-8">
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
-              🏆 Judges' Favorite Award
+            <span className="inline-flex items-center gap-2 bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
+              <Trophy className="h-3 w-3" />Judges' Favorite Award
             </span>
             <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
               SCU YSP ENGR1 &amp; ENGR1-L
@@ -98,14 +94,11 @@ function Rover() {
           </p>
         </div>
 
-        <img
-          src={rover}
-          alt="Mecanum-wheel rover with a robotic arm"
-          width={1024}
-          height={768}
-          className="aspect-[4/3] w-full rounded-2xl border-2 border-foreground object-cover shadow-hard"
-        />
+        <nav aria-label="Rover sections" className="section-navigation flex flex-wrap gap-5 border-y border-border py-4 text-sm"><a href="#research">Research</a><a href="#assembly">Assembly</a><a href="#parts">Parts & downloads</a><a href="#code">Code</a></nav>
+        <BlueprintPreview src={rover} title="Omnidirectional Rover + 6-DOF Arm" />
+        <p className="text-xs text-muted-foreground">Illustrative drawing · refer to the supplied CAD models for part geometry.</p>
 
+        <div id="research">
         <Card title="Abstract">
           <p>
             A low-cost mobile rover combining four independently driven mecanum wheels for
@@ -117,12 +110,13 @@ function Rover() {
             program's final showcase.
           </p>
         </Card>
+        </div>
 
         <section>
           <h2 className="font-display text-2xl font-bold">Results</h2>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             {results.map((r) => (
-              <div key={r.label} className="rounded-2xl border-2 border-foreground bg-card p-5 shadow-hard">
+              <div key={r.label} className="feedback-item border border-border bg-card p-5">
                 <div className="font-display text-4xl font-bold">{r.value}%</div>
                 <div className="text-sm text-muted-foreground">{r.label}</div>
                 <div className="mt-3 h-2 rounded-full bg-muted">
@@ -227,6 +221,7 @@ function Rover() {
 
         <p className="text-sm text-muted-foreground">
           Thanks to Professor Zand and Mr. Yamao and the SCU Young Scholars Program staff.
+          {" "}<Link to="/about" className="text-accent underline underline-offset-4">Meet the team →</Link>
         </p>
       </main>
     </div>
