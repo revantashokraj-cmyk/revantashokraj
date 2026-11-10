@@ -16,6 +16,14 @@ export const Route = createFileRoute("/about")({
 
 type Person = { name: string; role: string; note?: string };
 
+export const aviationProgress = {
+  program: "Patriots Jet Team Foundation Introduction to Aviation Program",
+  scholarship: "Ground school scholarship recipient",
+  groundSchool: "completed",
+  writtenExam: "preparing",
+  privatePilotLicense: "in-progress",
+} as const;
+
 const titles = [
   "Founder & President — Engineering Design Club",
   "Judges' Favorite Award — SCU Young Scholars robot showcase",
@@ -23,14 +31,16 @@ const titles = [
   "AP Physics 1 Teaching Assistant — Mr. Joo",
   "Swim Team Captain — Since freshman year",
   "Co-author, omnidirectional rover research paper",
+  aviationProgress.scholarship,
+  "Introduction to Aviation Program Participant — Patriots Jet Team Foundation",
 ];
 
 const programs = [
   { type: "Summer program", name: "SCU Young Scholars — ENGR1 & ENGR1-Lab", note: "Attended the summer before senior year. Coordinated our rover team's CAD, electronics, programming and assembly; our final project won Judges' Favorite.", href: "/projects/omni-rover" as const },
   { type: "Bootcamp", name: "UC Berkeley Design Build Bootcamp", note: "Attended the summer after sophomore year. Helped build a mini-golf course, organized team responsibilities and scheduling, and helped other teams after completing our course.", href: undefined },
-  { type: "Aviation program", name: "Patriots Jet Team Foundation", note: "Completed the Introduction to Aviation Program: flight fundamentals, instruments, navigation, air traffic communication and flight-simulator practice. Met military and commercial pilots and aviation industry speakers.", href: undefined },
+  { type: "Aviation program", name: "Patriots Jet Team Foundation · Introduction to Aviation", note: "Participated in the Introduction to Aviation Program: flight fundamentals, instruments, navigation, air traffic communication and flight-simulator practice. Met military and commercial pilots and aviation industry speakers.", href: undefined },
   { type: "Flight experience", name: "EAA Young Eagles", note: "Took multiple Young Eagles flights as my interest in aviation grew from a middle-school flight simulator into real-world experience.", href: undefined },
-  { type: "Training · In progress", name: "Sporty's Flight Ground School", note: "Currently studying toward a private pilot license, with a long-term goal of becoming a commercial pilot.", href: undefined },
+  { type: "Scholarship · Ground school completed", name: "Private Pilot Ground School", note: "Received a scholarship for free ground school with instructor Webster and completed the course. I'm now preparing to take the written exam as I work toward my private pilot license.", href: undefined },
   { type: "Club", name: "Engineering Design Club", note: "Founded a hands-on engineering community and led our quadruped spider robot build using Mert Kilic's open-source design.", href: "/projects/spider-robot" as const },
   { type: "Hackathon", name: "Zero to Demo · Slash Compute", note: "Worked with three teammates on a shared Mac compute system. I built the web frontend with Lovable.", href: "/projects/slash-compute" as const },
   { type: "Hackathon · Since 2023", name: "Island Hacks", note: "Attending annually since 2023, alongside my robotics and engineering club work.", href: undefined },
@@ -102,8 +112,9 @@ function About() {
           </p>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             I enjoy turning ambitious ideas into working projects — and helping other students build
-            the confidence to do the same. Alongside engineering, I'm studying toward a private pilot
-            license with the goal of becoming a commercial pilot.
+            the confidence to do the same. I've completed scholarship-funded ground school and am
+            preparing for the written exam toward my private pilot license, with the long-term goal
+            of becoming a commercial pilot.
           </p>
         </section>
 
@@ -138,7 +149,20 @@ function About() {
 
         <section id="aviation" className="border-t border-border pt-8">
           <p className="text-xs font-semibold uppercase text-primary">Aviation & hands-on work</p>
-          <h2 className="mt-2 font-display text-2xl font-bold">USS Hornet Museum · Air Group</h2>
+          <h2 className="mt-2 font-display text-2xl font-bold">My path to aviation</h2>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div className="border-l-2 border-accent pl-4">
+              <h3 className="font-display text-lg font-bold">Patriots Jet Team Foundation</h3>
+              <p className="mt-2 text-sm font-medium text-accent">Introduction to Aviation Program participant</p>
+              <p className="mt-3 text-muted-foreground">I explored flight fundamentals, navigation, instruments and air traffic communication through simulator practice, and learned from pilots and aviation industry speakers.</p>
+            </div>
+            <div className="border-l-2 border-primary pl-4">
+              <h3 className="font-display text-lg font-bold">Ground school scholarship</h3>
+              <p className="mt-2 text-sm font-medium text-primary">Course completed · Written exam next</p>
+              <p className="mt-3 text-muted-foreground">I received a scholarship for free ground school with instructor Webster and completed the course. I'm now preparing to take the written exam and working toward earning my private pilot license.</p>
+            </div>
+          </div>
+          <h3 className="mt-10 border-t border-border pt-8 font-display text-2xl font-bold">USS Hornet Museum · Air Group</h3>
           <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
             As an Air Group volunteer at the USS Hornet Museum in Alameda Point, I learn from
             veteran volunteers while helping restore and maintain retired military aircraft.
