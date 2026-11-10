@@ -106,7 +106,7 @@ function Index() {
                 </div>
               )}
               <div className="flex flex-1 flex-col p-6">
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${catStyle[p.category]}`}>
+                <span className={`self-start px-3 py-1 text-xs font-semibold ${catStyle[p.category]}`}>
                   {p.category}
                 </span>
                 <h3 className="mt-4 font-display text-2xl font-bold">{p.title}</h3>

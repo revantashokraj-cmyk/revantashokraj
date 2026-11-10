@@ -42,6 +42,7 @@ export function StlViewer({ url, name = "STL model" }: { url: string; name?: str
         context.fillStyle = getComputedStyle(el).getPropertyValue(token).trim();
         context.fillRect(0, 0, 1, 1);
         const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+        if (r === undefined || g === undefined || b === undefined) throw new Error("Color conversion failed");
         return new THREE.Color().setRGB(r / 255, g / 255, b / 255, THREE.SRGBColorSpace);
       };
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });

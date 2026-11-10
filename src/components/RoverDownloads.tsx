@@ -10,8 +10,8 @@ export function RoverDownloads() {
   const [search, setSearch] = useState("");
   const filtered = roverParts.filter(p => `${p.name} ${p.group}`.toLowerCase().includes(search.toLowerCase()));
   const row = (p: StlPart) => <li key={p.file} className={`part-row flex items-center gap-2 border px-3 py-2 ${active.file === p.file ? "border-accent bg-secondary/30" : "border-transparent"}`}>
-    <Button variant="ghost" onClick={() => setActive(p)} aria-pressed={active.file === p.file} aria-label={`View ${p.name} in 3D`} className="h-auto min-h-11 min-w-0 flex-1 flex-col items-start gap-1 whitespace-normal px-1 text-left">
-      <span className="font-medium text-foreground">{p.name}</span><span className="text-xs text-muted-foreground">{formatSize(p.size)}</span>
+    <Button variant="ghost" onClick={() => setActive(p)} aria-pressed={active.file === p.file} aria-label={`View ${p.name} in 3D`} className="h-auto min-h-11 min-w-0 flex-1 flex-col items-start gap-1 whitespace-normal px-1 text-left hover:bg-secondary hover:text-secondary-foreground">
+      <span className="font-medium">{p.name}</span><span className="text-xs opacity-75">{formatSize(p.size)}</span>
     </Button>
     <Button asChild variant="outline" size="icon"><a href={p.url} download={p.file} aria-label={`Download ${p.name} STL`} title={`Download ${p.name} STL`}><Download /></a></Button>
   </li>;
