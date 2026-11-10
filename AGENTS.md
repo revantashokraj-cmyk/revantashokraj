@@ -34,3 +34,4 @@ use the editor.
 - Keep shared navigation in the root layout; detail pages use in-page section anchors and consistent unframed sections for coherent navigation.
 - Load and dispose STL renderers in browser effects, expose accessible view controls, and retain retry states for failed asset loads.
 - Project filtering supports multiple program affiliations; test user-specified affiliations independently of UI styling.
+- Preserve every source mesh when preparing display assembly STLs; union-based exports can silently drop non-manifold parts, so validate part presence and append transformed source triangles when needed.
