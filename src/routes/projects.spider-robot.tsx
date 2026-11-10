@@ -109,10 +109,11 @@ function Spider() {
           </p>
         </div>
 
+        <nav aria-label="Spider robot sections" className="section-navigation flex flex-wrap gap-5 border-y border-border py-4 text-sm"><a href="#overview">Overview</a><a href="#build">Build</a><a href="#downloads">Parts & downloads</a><a href="#source">Source & credit</a></nav>
         <BlueprintPreview src={spider} title="Quadruped Spider Robot" />
         <p className="text-xs text-muted-foreground">Illustrative drawing · source design by Mert Kilic · not a dimensioned fabrication plan.</p>
 
-        <Card title="What it is">
+        <div id="overview"><Card title="What it is">
           <p>
             A four-legged walking robot — a quadruped — that moves by positioning its servos through
             calculation rather than sensors. Each leg has three joints, so twelve servos in total,
@@ -120,7 +121,7 @@ function Spider() {
             order. The mechanical parts are 3D printed, and everything is wired to a custom PCB that
             carries power and the servo control lines back to an Arduino Nano.
           </p>
-        </Card>
+        </Card></div>
 
         <div className="grid gap-8 md:grid-cols-2">
           <Card title="Technical specs">
@@ -210,7 +211,7 @@ function Spider() {
           </Card>
         </div>
 
-        <Card title="Build order">
+        <div id="build"><Card title="Build order">
           <ol className="space-y-4">
             {steps.map(([title, body], i) => (
               <li key={title} className="flex gap-3">
@@ -224,9 +225,9 @@ function Spider() {
               </li>
             ))}
           </ol>
-        </Card>
+        </Card></div>
 
-        <Card title="Source and credit">
+        <div id="source"><Card title="Source and credit">
           <p className="text-sm">
             This build follows the open-source quadruped spider robot design shared on PCBWay by
             Mert Kilic, published under a Creative Commons Attribution-ShareAlike licence. The
@@ -240,8 +241,12 @@ function Spider() {
           >
             Open the original project →
           </a></Button>
-        </Card>
+        </Card></div>
         <SpiderSourceDownloads />
+        <nav aria-label="More from the portfolio" className="flex flex-wrap justify-between gap-4 border-t border-border pt-6 text-sm">
+          <Link to="/" hash="projects" className="text-accent">← All projects</Link>
+          <Link to="/projects/omni-rover" className="text-accent">Next project · Omnidirectional rover ↗</Link>
+        </nav>
       </main>
     </div>
   );

@@ -105,7 +105,11 @@ function About() {
           </p>
         </section>
 
-        <section>
+        <nav aria-label="About sections" className="section-navigation flex flex-wrap gap-x-5 gap-y-2 border-y border-border py-3 text-sm">
+          <a href="#recognition">Recognition</a><a href="#programs">Programs</a><a href="#aviation">Aviation</a><a href="#club">Club & alumni</a><a href="#mentors">Mentors</a>
+        </nav>
+
+        <section id="recognition">
           <h2 className="font-display text-2xl font-bold">Titles & recognition</h2>
           <ul className="mt-4 grid gap-3 md:grid-cols-2">
             {titles.map((t) => (
@@ -116,7 +120,7 @@ function About() {
           </ul>
         </section>
 
-        <section>
+        <section id="programs">
           <h2 className="font-display text-2xl font-bold">Programs & training</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {programs.map((p, i) => (
@@ -130,7 +134,7 @@ function About() {
           </div>
         </section>
 
-        <section className="border-t border-border pt-8">
+        <section id="aviation" className="border-t border-border pt-8">
           <p className="text-xs font-semibold uppercase text-primary">Aviation & hands-on work</p>
           <h2 className="mt-2 font-display text-2xl font-bold">USS Hornet Museum · Air Group</h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
@@ -151,7 +155,7 @@ function About() {
           </dl>
         </section>
 
-        <section>
+        <section id="club">
           <h2 className="font-display text-2xl font-bold">Engineering Design Club</h2>
           <p className="mt-2 max-w-3xl leading-relaxed text-muted-foreground">
             I founded the club to give aspiring engineers at my school a place to learn and build
@@ -202,7 +206,7 @@ function About() {
           </div>
         </section>
 
-        <section>
+        <section id="mentors">
           <h2 className="font-display text-2xl font-bold">Thank you</h2>
           <p className="mt-2 text-muted-foreground">None of these builds happened alone.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
@@ -221,6 +225,7 @@ function About() {
             ))}
           </div>
         </section>
+        <nav aria-label="More from the portfolio" className="border-t border-border pt-6 text-sm"><Link to="/" hash="projects" className="text-accent">Explore my engineering projects ↗</Link></nav>
       </main>
     </div>
   );

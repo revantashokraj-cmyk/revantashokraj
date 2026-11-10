@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Complete current full-site visual, navigation, accessibility and download review; clipboard copy remains unverified in automated browser
 - [x] Audit all prior requests; correct drawing labels, program affiliations and guessed role
 - [x] Polish navigation, layouts, hover, focus and touch feedback
 - [x] Verify 3D controls, all 27 STL asset links, representative downloads, firmware and mobile flow

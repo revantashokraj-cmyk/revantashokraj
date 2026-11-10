@@ -17,6 +17,6 @@ export function RoverAssembly() {
       <div className="flex flex-wrap gap-2" role="group" aria-label="Assembly view">{(Object.keys(views) as (keyof typeof views)[]).map(k => <Button key={k} onClick={() => setView(k)} aria-pressed={view === k} variant={view === k ? "secondary" : "outline"}>{views[k].label}</Button>)}</div>
     </div>
     <div className="mt-6 h-[350px] sm:h-[480px]"><StlViewer url={v.url} name={v.label} /></div>
-    <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="max-w-xl text-xs text-muted-foreground">Forearm restored from the supplied CAD mesh in both views. Hardware geometry follows the source assembly.</p><Button asChild size="sm"><a href={v.url} download={v.file}><Download />Download {v.label.toLowerCase()} · {formatSize(v.size)}</a></Button></div>
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="max-w-xl text-xs text-muted-foreground">Assembly includes the forearm, chassis, wheel mounts and enclosure.</p><Button asChild size="sm" className="h-auto min-h-11 whitespace-normal text-left"><a href={v.url} download={v.file}><Download />Download {v.label.toLowerCase()} · {formatSize(v.size)}</a></Button></div>
   </section>;
 }
