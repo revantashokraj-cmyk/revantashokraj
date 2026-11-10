@@ -35,7 +35,7 @@ export const clubOfficers: Person[] = [
   { name: "Revant Ashokraj", role: "Founder & President" },
   { name: "Stanley He", role: "Vice President · Lead Programmer / Computer Scientist" },
   { name: "Aidan Matthew Roza", role: "Lead Engineer · Secretary" },
-  { name: "Andrew Kasberger", role: "Former Vice President", note: "Studying Mechatronics at Santa Clara University" },
+  { name: "Andrew Kasberger", role: "Former Vice President", note: "Studying Mechatronics at Chico State" },
   { name: "Khanh Tu", role: "Former Fabrication Team Head", note: "Graduated alumni" },
   { name: "Tyler Tsuji", role: "Former Media Manager", note: "Studying Game Design at College of Alameda" },
 ];

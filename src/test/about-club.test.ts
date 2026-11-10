@@ -19,7 +19,7 @@ describe("Engineering Design Club roster", () => {
 
   it("marks the alumni roles and where each alum is now", () => {
     expect(roleOf("Andrew Kasberger")).toBe("Former Vice President");
-    expect(noteOf("Andrew Kasberger")).toContain("Santa Clara University");
+    expect(noteOf("Andrew Kasberger")).toContain("Chico State");
     expect(roleOf("Khanh Tu")).toBe("Former Fabrication Team Head");
     expect(noteOf("Khanh Tu")).toContain("Graduated");
     expect(roleOf("Tyler Tsuji")).toBe("Former Media Manager");
