@@ -16,7 +16,9 @@ const all: StlPart[] = Object.values(pointers).map((p) => ({
   group: groupOf(p.original_filename),
 }));
 
-export const combinedPart = all.find((p) => p.file === "Rover_All_Parts.stl")!;
+const combined = all.find((p) => p.file === "Rover_All_Parts.stl");
+if (!combined) throw new Error("The combined rover STL asset is missing.");
+export const combinedPart: StlPart = combined;
 export const roverParts = all
   .filter((p) => p !== combinedPart)
   .sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));

@@ -6,6 +6,7 @@ export type Category = "Personal" | "Engineering Design Club" | "SCU YSP ENGR1" 
 export type Project = {
   title: string;
   category: Category;
+  additionalCategories?: Category[];
   summary: string;
   details: string[];
   tags: string[];
@@ -42,6 +43,7 @@ export const projects: Project[] = [
   {
     title: "Omnidirectional Rover + 6-DOF Arm",
     category: "SCU YSP ENGR1",
+    additionalCategories: ["SCU YSP ENGR1-Lab"],
     href: "/projects/omni-rover",
     cta: "Read the research →",
     summary:
@@ -56,3 +58,6 @@ export const projects: Project[] = [
     badge: "Judges' Favorite",
   },
 ];
+
+export const projectsInCategory = (category: Category | "All") =>
+  category === "All" ? projects : projects.filter((p) => p.category === category || p.additionalCategories?.includes(category));
