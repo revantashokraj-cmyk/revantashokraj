@@ -13,4 +13,4 @@
 - [x] Add official PCBWay download links for all eight spider part files
 - [ ] Spider local part previews, combined STL and complete 3D assembly (blocked: official downloads require PCBWay sign-in; source STL uploads needed)
 - [x] Even out About page layout
-- [ ] Club member roles (blocked: waiting on roles list from Revant)
+- [x] Club member roles, founder/president title, alumni mentorship network callout
